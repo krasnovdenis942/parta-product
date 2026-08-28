@@ -61,11 +61,92 @@ a {
 .site-header {
   border-bottom: 1px solid var(--border);
   padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .site-header a {
   font-weight: 700;
   font-size: 18px;
+}
+
+/* --- Кнопка "Синхронизация" и панель истории --- */
+
+.sync-status {
+  position: relative;
+}
+
+.sync-status__button {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.sync-status__button:hover {
+  border-color: var(--accent);
+}
+
+.sync-status__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  max-height: 360px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.sync-status__title {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sync-status__row {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  align-items: flex-start;
+}
+
+.sync-status__row:last-child {
+  border-bottom: none;
+}
+
+.sync-status__badge {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.sync-status__badge--ok {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+}
+
+.sync-status__badge--error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+
+.sync-status__details {
+  min-width: 0;
 }
 
 .page {
