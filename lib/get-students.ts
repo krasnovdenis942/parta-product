@@ -27,7 +27,9 @@ export async function getAllStudents(columns: string = "*"): Promise<StudentRow[
       break;
     }
 
-    allRows.push(...data);
+    // Supabase не может статически вывести тип строк по произвольной
+    // строке columns без описания схемы базы — говорим TypeScript доверять нам.
+    allRows.push(...(data as unknown as StudentRow[]));
     if (data.length < pageSize) {
       break;
     }
